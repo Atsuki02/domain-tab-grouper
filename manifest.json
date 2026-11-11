@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Domain Tab Grouper",
+  "version": "1.0.0",
+  "description": "同じドメインのタブを自動でタブグループにまとめる（個人用）",
+  "permissions": ["tabs", "tabGroups", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Domain Tab Grouper",
+    "default_popup": "popup.html"
+  }
+}

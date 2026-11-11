@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root { color-scheme: light dark; --muted: #888; --line: #8884; }
+    body { font: 13px -apple-system, BlinkMacSystemFont, sans-serif; width: 300px; margin: 0; padding: 14px; }
+    h2 { font-size: 12px; color: var(--muted); font-weight: 600; margin: 16px 0 6px; }
+    label { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+    .row { display: flex; gap: 6px; align-items: center; }
+    input[type=number] { width: 52px; }
+    textarea { width: 100%; box-sizing: border-box; height: 56px; font: inherit; }
+    .hint { color: var(--muted); font-size: 11px; }
+    .buttons { display: flex; gap: 6px; margin-top: 16px; }
+    .buttons button { flex: 1; padding: 6px; }
+  </style>
+</head>
+<body>
+  <label><input type="checkbox" id="enabled"> <strong>同じドメインのタブを自動でまとめる</strong></label>
+
+  <div class="row">
+    <span>同じドメインのタブが</span>
+    <input type="number" id="minTabs" min="1" max="20">
+    <span>個以上でまとめる</span>
+  </div>
+
+  <h2>まとめ方</h2>
+  <label><input type="checkbox" id="mergeSubdomains"> サブドメインも同じグループにする</label>
+  <div class="hint">オンにすると mail.google.com と docs.google.com が「google」にまとまります。</div>
+  <label><input type="checkbox" id="collapseInactive"> 見ていないグループを折りたたむ</label>
+
+  <h2>まとめないドメイン</h2>
+  <textarea id="exclude" placeholder="example.com&#10;mail.google.com"></textarea>
+  <div class="hint">1行に1ドメイン。サブドメインも対象になります。</div>
+
+  <div class="buttons">
+    <button id="organize">今すぐ整理</button>
+    <button id="ungroup">グループを解除</button>
+  </div>
+  <div class="hint" style="margin-top:6px">自分で作ったグループには触りません。</div>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
